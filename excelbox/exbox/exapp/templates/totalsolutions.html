@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Solution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <a class="totalsolutions-link" href="{% url "exapp:totalsolutions" %}"></a>
+    <style>
+        body {
+            font-family: 'Mulish', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 95%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            padding: 8px;
+            width: 250px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .dropdown {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- Search bar and Sorting dropdown -->
+            <input type="text" class="search-bar" placeholder="Search...">
+            <select class="dropdown">
+                <option value="all">All Categories</option>
+                <option value="hardware">Hardware</option>
+                <option value="software">Software</option>
+                <option value="service">Service</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SL No</th>
+                        <th>Applications</th>
+                        <th>Category</th>
+                        <th>Product Name</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Specification</th>
+                        <th>UOM</th>
+                        <th>Buying Price</th>
+                        <th>Vendor</th>
+                        <th>Quotation Received Month</th>
+                        <th>Lead Time</th>
+                        <th>Remarks</th>
+                        <th>List Price</th>
+                        <th>Discount</th>
+                        <th>Sales Price</th>
+                        <th>Sales Margin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for obj in objs %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{obj.product_name}}</td>
+                        <td>Hardware</td>
+                        <td>Product 1</td>
+                        <td>Brand A</td>
+                        <td>Model 100</td>
+                        <td>Specification 1</td>
+                        <td>Unit</td>
+                        <td>$500</td>
+                        <td>Vendor A</td>
+                        <td>January 2024</td>
+                        <td>30 days</td>
+                        <td>No remarks</td>
+                        <td>$600</td>
+                        <td>10%</td>
+                        <td>$540</td>
+                        <td>10%</td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more rows as needed -->
+                    <!-- <tr>
+                        <td>2</td>
+                        <td>Application 2</td>
+                        <td>Software</td>
+                        <td>Software 1</td>
+                        <td>Brand B</td>
+                        <td>Model X</td>
+                        <td>Specification 2</td>
+                        <td>License</td>
+                        <td>$200</td>
+                        <td>Vendor B</td>
+                        <td>February 2024</td>
+                        <td>45 days</td>
+                        <td>Requires integration</td>
+                        <td>$250</td>
+                        <td>15%</td>
+                        <td>$212.5</td>
+                        <td>15%</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% block content %}{% endblock content %}
+</body>
+</html>
