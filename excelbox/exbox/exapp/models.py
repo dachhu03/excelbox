@@ -14,7 +14,7 @@ class Totalsolutions(models.Model):
     make = models.CharField(max_length=255)
     model = models.CharField(max_length=255)
     specification = models.TextField()
-    uom = models.CharField(max_length=50)  # Unit of Measurement
+    uom = models.CharField(max_length=300)  # Unit of Measurement
     buying_price = models.DecimalField(max_digits=10, decimal_places=2)
     vendor = models.CharField(max_length=255)
     quotation_received_month = models.CharField(max_length=50)

@@ -7,11 +7,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <a class="totalsolutions-link" href="{% url "exapp:totalsolutions" %}"></a>
     <style>
         body {
+            display: flex;
+            justify-content: center; /* Horizontally centers the content */
+            align-items: flex-start;  /* Aligns content at the top */
             font-family: 'Mulish', sans-serif;
             background-color: #f8f9fa;
             margin: 0;
@@ -27,7 +31,7 @@
         }
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             margin-bottom: 20px;
         }
@@ -36,12 +40,24 @@
             width: 250px;
             border-radius: 4px;
             border: 1px solid #ccc;
+            margin-right: 40px; /* Optional margin to space out from the dropdown */
         }
         .dropdown {
             padding: 8px;
             border-radius: 4px;
             border: 1px solid #ccc;
+            margin-right: 40px; /* Optional margin for spacing */
+            
         }
+        .upload-btn {
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
         .table-container {
             overflow-x: auto;
         }
@@ -80,6 +96,7 @@
                 <option value="software">Software</option>
                 <option value="service">Service</option>
             </select>
+            <button class="upload-btn">Add Items</button>
         </div>
 
         <div class="table-container">
@@ -110,7 +127,10 @@
                     <tr>
                         <td>{{forloop.counter}}</td>
                         <td>{{obj.product_name}}</td>
-                        <td>Hardware</td>
+                        <td>
+                            <a class="waves-effect waves-light btn"> <i class="material-icons">border_color</i></a>
+                            <a class="waves-effect red waves-light btn"> <i class="material-icons">delete</i></a>
+                        </td>
                         <td>Product 1</td>
                         <td>Brand A</td>
                         <td>Model 100</td>
@@ -128,7 +148,7 @@
                     </tr>
                     {% endfor %}
                     <!-- Add more rows as needed -->
-                    <!-- <tr>
+                     <tr>
                         <td>2</td>
                         <td>Application 2</td>
                         <td>Software</td>
@@ -146,7 +166,7 @@
                         <td>15%</td>
                         <td>$212.5</td>
                         <td>15%</td>
-                    </tr> -->
+                    </tr> 
                 </tbody>
             </table>
         </div>
