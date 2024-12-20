@@ -36,3 +36,7 @@ def totalsolutions(request):
         'products': products
     }
     return render(request, 'totalsolutions.html', context)
+
+
+def additem(request):
+ return render(request, "additem.html", {})
