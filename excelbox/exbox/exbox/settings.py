@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'exbox.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database1',#your database name
+        'NAME': 'database1',
         'USERNAME':"root",
         "PASSWORD":"root",
         "HOST":"localhost",
